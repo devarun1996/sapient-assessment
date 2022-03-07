@@ -1,0 +1,5 @@
+<div style="height: 100%;width: 100%;overflow: auto;">
+    <span *ngFor="let time of timestampArray" style="font-weight: bold;">
+      <p>{{time.action | titlecase}} at 
+          {{time.timestamp ? (time.timestamp | date: 'dd-MM-yyyy hh:mm:ss a') : '--'}}</p></span><br>
+</div>

@@ -1,0 +1,51 @@
+<div>
+    <h1 style="margin-left: 40%;">Tennis Racquets</h1>
+    <div style="float:right">
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style" [(value)]="viewMode">
+            <mat-button-toggle value="grid">Grid-View</mat-button-toggle>
+            <mat-button-toggle value="list">List-View</mat-button-toggle>
+        </mat-button-toggle-group>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <mat-form-field appearance="outline">
+            <mat-label>Price filter</mat-label>
+            <mat-select placeholder="Select option" [(value)]="priceSort" (selectionChange)="sortProductArray()">
+              <mat-option [value]="'asc'">Low to High</mat-option>
+              <mat-option [value]="'desc'">High to Low</mat-option>
+              <mat-option [value]="'init'">Relevance</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div *ngIf="viewMode === 'list'">
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let item of products" style="width: 250px;height: 250px;border: 1px solid;padding: 2px 2px 2px 2px;">
+            <img [src]="item.image" alt="" height="150" width="150">
+            <div style="display:flex;flex-direction: column;align-items: center;">
+                <p style="font-weight: bold;">{{item.title | titlecase}}</p>
+                <p style="font-weight: bold;">{{item.price | currency: 'USD'}}</p>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<div *ngIf="viewMode === 'grid'">
+    <mat-grid-list cols="4" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let item of products" style="width: 250px;height: 250px;border: 1px solid;padding: 2px 2px 2px 2px;">
+            <img [src]="item.image" alt="" height="150" width="150">
+            <div style="display:flex;flex-direction: column;align-items: center;">
+                <p style="font-weight: bold;">{{item.title | titlecase}}</p>
+                <p style="font-weight: bold;">{{item.price | currency: 'USD'}}</p>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+
+<br>
+<div>
+    <button style="margin-left:50%" mat-raised-button color="primary" routerLink="../home">Home</button>
+</div>

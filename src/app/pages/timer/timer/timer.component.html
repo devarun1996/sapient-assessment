@@ -1,0 +1,35 @@
+<div class="border"
+    style="width: 100%;height: 100%;border: 5px solid;padding: 2% 2% 2% 2%;">
+    
+    <div style=" display: flex;justify-content: space-between;">
+        <div class="border"
+        style="width: 30vw;height: 30vh;border: 5px solid;padding: 2% 2% 2% 2%;">
+            <app-display [timerValue]="timerValue" [actionValue]="actionValue" (pausedTimerValueEmitter)="getPausedTimerValue($event)"></app-display>
+        </div>
+
+        <div class="border"
+            style="width: 40vw;height: 30vh;border: 5px solid;padding: 2% 2% 2% 2%;">
+            <app-input (timerValueEmitter)="setTimer($event)" (timerActionEmitter)="setAction($event)" [pausedArray]="pausedArray">
+            </app-input>
+        </div>
+
+    </div>
+    <br>
+
+    <div style="display: flex;justify-content: space-between;">
+        <div class="border"
+        style="width: 30vw;height: 30vh;padding: 2% 2% 2% 2%;">
+            <app-time-stamp [timestampArray]="timestampArray"></app-time-stamp>
+        </div>
+
+        <div class="border"
+            style="width: 40vw;height: 30vh;padding: 2% 2% 2% 2%;">
+            <app-click-count [startValue]="startCounter" [pauseValue]="pauseCounter"></app-click-count>
+        </div>
+
+    </div>
+
+    <div>
+        <button style="margin-left:50%" mat-raised-button color="primary" routerLink="../home">Home</button>
+    </div>
+</div>

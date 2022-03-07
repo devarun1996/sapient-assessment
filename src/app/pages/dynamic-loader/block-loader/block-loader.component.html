@@ -1,0 +1,14 @@
+<div style="height: 70vh;overflow: auto;margin-left: 40%;"
+ class="list-style" (scroll)="onScroll($event)">
+
+    <div class="list-item" style="width: 200px;height: 200px;border: 2px solid;padding: 50px 50px 50px 50px;border-radius: 10px;"
+        *ngFor="let item of data;let i=index">
+        
+            <button mat-raised-button color="primary" (click)="showMessage(i+1)">Click Me</button>
+
+    </div>
+</div>
+<br>
+<div>
+    <button style="margin-left:50%" mat-raised-button color="primary" routerLink="../home">Home</button>
+</div>
